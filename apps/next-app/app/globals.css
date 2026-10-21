@@ -45,7 +45,7 @@
 .minimax-wordmark-copy > span { color: var(--site-muted); font-size: 10px; letter-spacing: .015em; }
 .minimax-mark { width: 42px; height: 42px; flex-shrink: 0; }
 .minimax-header nav { margin-left: auto; display: flex; gap: 24px; font-size: 13px; font-weight: 550; }
-.minimax-header nav a { padding-block: 12px; border-bottom: 2px solid var(--site-rose); }
+.minimax-header nav a { padding-block: 12px; border-bottom: 2px solid transparent; }
 .minimax-docs-link { display: inline-flex; align-items: center; gap: 7px; font-size: 12px; color: var(--site-ink); border: 1px solid var(--site-muted); border-radius: var(--site-radius-pill); padding: 9px 16px; }
 .minimax-docs-link:hover { color: var(--site-ink); }
 .minimax-skip-link { position: fixed; top: -120px; left: 16px; z-index: 100; padding: 12px 18px; background: var(--site-ink); color: var(--site-panel); border-radius: var(--site-radius-small); }
@@ -191,7 +191,8 @@
 .minimax-footer-brand { font-size: 14px; font-weight: 600; letter-spacing: -.025em; }
 .minimax-footer p { color: var(--site-muted); font-size: 10px; line-height: 1.9; margin-top: 7px; }
 .minimax-disclaimer { max-width: 440px; }
-.minimax-site:has(.minimax-guide) .minimax-header nav a[href="/"],.minimax-site:not(:has(.minimax-guide)) .minimax-header nav a[href="/minimax-h3.1-comfyui"] { border-color: transparent; }
+.minimax-site:not(:has(.minimax-guide)) .minimax-header nav a[href="/"] { border-color: var(--site-rose); }
+.minimax-site:has(.minimax-guide-intro) .minimax-header nav a[href="/minimax-h3.1-comfyui"] { border-color: var(--site-rose); }
 .minimax-guide-intro { display: grid; grid-template-columns: minmax(0,1fr) 300px; gap: 28px 64px; padding-block: 42px 30px; border-bottom: 1px solid var(--site-line); }
 .minimax-guide h1 { max-width: 820px; margin-top: 14px; font-size: clamp(32px,3.3vw,46px); font-weight: 700; line-height: 1.15; letter-spacing: -.04em; }
 .minimax-guide h2 { font-size: 29px; line-height: 1.25; font-weight: 650; letter-spacing: -.03em; }
@@ -247,7 +248,31 @@
 .minimax-max-alternatives h3 > a { display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 600; }
 .minimax-pending-link { display: inline-flex; align-items: baseline; flex-wrap: wrap; column-gap: 6px; color: var(--site-ink); }
 .minimax-pending-link > span { color: var(--site-muted); font-size: .85em; }
-.minimax-site:has(.minimax-max-guide) .minimax-header nav a[href="/minimax-h3.1-comfyui"],.minimax-site:not(:has(.minimax-max-guide)) .minimax-header nav a[href="/minimax-h3.1-max"] { border-color: transparent; }
+.minimax-site:has(.minimax-max-guide) .minimax-header nav a[href="/minimax-h3.1-max"],.minimax-site:has(.minimax-pricing-guide) .minimax-header nav a[href="/minimax-h3.1-pricing"] { border-color: var(--site-rose); }
+.minimax-pricing-intro { padding-top: 44px; padding-bottom: 32px; border-bottom: 1px solid var(--site-line); }
+.minimax-pricing-status { color: var(--site-muted); font-size: 11px; }
+.minimax-credit-packs { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 18px; margin-top: 28px; }
+.minimax-credit-pack { position: relative; padding: 25px; background: var(--site-panel); border: 1px solid var(--site-line); border-radius: var(--site-radius); }
+.minimax-credit-pack-featured { border-color: var(--site-rose); background: linear-gradient(165deg,var(--site-accent-soft),var(--site-panel) 65%); }
+.minimax-pack-heading { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; min-height: 25px; }
+.minimax-pack-heading h3 { font-size: 15px; font-weight: 650; }
+.minimax-pack-badge { border: 1px solid var(--site-line); border-radius: var(--site-radius-pill); padding: 4px 9px; font-size: 10px; color: var(--site-muted); }
+.minimax-credit-pack-featured .minimax-pack-badge { border-color: var(--site-rose); color: var(--site-ink); }
+.minimax-pack-price { margin-top: 28px; font-size: clamp(17px,1.9vw,25px); font-weight: 650; letter-spacing: -.04em; overflow-wrap: anywhere; }
+.minimax-pack-price code { font-family: var(--font-geist-mono),monospace; }
+.minimax-pack-unit { margin-top: 5px; color: var(--site-muted); font-size: 11px; }
+.minimax-pack-balance { margin-top: 25px; color: var(--site-muted); font-size: 12px; }
+.minimax-pack-balance strong { font-size: 32px; color: var(--site-ink); letter-spacing: -.035em; }
+.minimax-pack-description { min-height: 64px; margin-top: 13px; color: var(--site-muted); font-size: 12px; line-height: 1.8; }
+.minimax-pack-button { width: 100%; margin-top: 25px; background: var(--site-subtle); color: var(--site-ink); border: 1px solid var(--site-line); border-radius: var(--site-radius-small); }
+.minimax-pack-button:disabled { opacity: .7; }
+.minimax-credit-pack-featured .minimax-pack-button { background: var(--site-brand-gradient); color: var(--site-accent-ink); border-color: transparent; }
+.minimax-pack-table { margin-top: 25px; }
+.minimax-pack-table td { min-width: 150px; }
+.minimax-cost-table td:nth-child(n+3) { min-width: 260px; color: var(--site-muted); }
+.minimax-cost-table code { font-size: 11px; line-height: 1.8; }
+.minimax-pricing-comparison td:nth-child(3) { min-width: 250px; }
+.minimax-pricing-comparison .minimax-guide-source { display: flex; width: fit-content; margin-top: 10px !important; }
 @keyframes minimax-spin { to { transform: rotate(360deg); } }
 .minimax-spinner { animation: minimax-spin 1s linear infinite; }
 @media (max-width: 1000px) {
@@ -265,6 +290,12 @@
   .minimax-resource-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
 }
 @media (max-width: 700px) {
+  .minimax-credit-packs { grid-template-columns: 1fr; }
+  .minimax-credit-pack { padding: 22px; }
+  .minimax-pack-description { min-height: auto; }
+  .minimax-pricing-intro { padding-top: 28px; }
+  .minimax-header-inner { flex-wrap: wrap; row-gap: 0; }
+  .minimax-header nav { flex-wrap: wrap; }
   .minimax-max-scenarios,.minimax-max-alternatives { grid-template-columns: 1fr; }
   .minimax-max-intro { padding-top: 28px; }
   .minimax-guide-intro { grid-template-columns: 1fr; padding-top: 28px; }

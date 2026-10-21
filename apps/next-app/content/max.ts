@@ -88,7 +88,7 @@ export const maxContent = {
     pricingTail: 'will hold verified quote details once published; this comparison does not invent a charge to fill the gap.',
     quoteSource: 'Check fal’s current billing page',
   },
-  pricing: { href: '/minimax-h3.1-pricing', published: false, label: 'Pricing guide', status: 'coming soon' },
+  pricing: { href: '/minimax-h3.1-pricing', published: true, label: 'Pricing guide', status: 'coming soon' },
   alternatives: {
     heading: 'Alternatives',
     introduction: 'Choose the destination for the work you need to do. A platform link is not evidence that it offers an unannounced model, and an account or credit balance on one service should not be assumed to transfer to another.',

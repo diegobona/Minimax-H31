@@ -1,0 +1,115 @@
+export const PRICING_UPDATED = '2026-10-21';
+export const PRICE_TODO = '<PRICE_TODO>';
+
+export const pricingContent = {
+  metadata: {
+    title: 'MiniMax H3.1 Pricing and Credit Packs',
+    description: 'Preview one-time video credit packs, compare H3 cost-per-video formulas, and check the unannounced MiniMax H3.1 pricing status.',
+  },
+  hero: {
+    label: 'PRICING / ONE-TIME CREDIT PACKS',
+    heading: 'MiniMax H3.1 Pricing',
+    introduction: 'MiniMax H3.1 pricing has not been announced. This page previews our planned one-time credit packs for the current H3 workspace, shows how cost per video will be calculated, and separates our proposed credit policy from provider billing. Pack sizes are a proposed site offer; prices, generation rates, free allowances, and watermark terms remain pending. Purchases and live generation are not enabled yet.',
+    linkLead: 'Prepare your next shot in the',
+    link: 'MiniMax H3.1 video generator',
+    linkTail: 'while we finish the confirmed quote and generation connection.',
+    compare: 'Explore credit packs',
+    status: 'Pack preview · checkout unavailable',
+    availabilityLabel: 'H3.1 pricing:',
+    availability: 'Official details not yet announced.',
+  },
+  packs: {
+    heading: 'Credit packs',
+    introduction: 'Choose the amount of creative room you need without a recurring commitment. Starter is for a focused idea, Creator leaves room for comparing directions, and Studio holds a larger balance for several briefs. Each step adds more credits than the previous step. Monetary prices and useful clip estimates remain pending, so compare the proposed balances today and return for a confirmed quote before deciding what to buy.',
+    priceUnit: 'one-time payment',
+    creditsLabel: 'credits',
+    button: 'Coming soon',
+    buttonExplanation: 'Purchases are not enabled yet',
+    items: [
+      { id: 'starter', name: 'Starter', credits: 100, price: PRICE_TODO, badge: '', description: 'A smaller balance for exploring a focused idea and learning which settings suit your brief.', featured: false },
+      { id: 'creator', name: 'Creator', credits: 300, price: PRICE_TODO, badge: 'Best Value', description: 'The proposed everyday choice for comparing directions and keeping room for a second round of revisions.', featured: true },
+      { id: 'studio', name: 'Studio', credits: 700, price: PRICE_TODO, badge: 'High volume', description: 'A larger reference tier for planning several briefs together, with more credits added at this step.', featured: false },
+    ],
+    columns: ['Pack details', 'Starter', 'Creator', 'Studio'],
+    rows: [
+      { label: 'Credits', values: ['100', '300', '700'] },
+      { label: 'Estimated videos', values: [PRICE_TODO, PRICE_TODO, PRICE_TODO] },
+      { label: 'Estimated total seconds', values: [PRICE_TODO, PRICE_TODO, PRICE_TODO] },
+      { label: 'Credit expiry', values: ['never expire', 'never expire', 'never expire'] },
+      { label: 'Watermark-free output', values: ['Policy pending', 'Policy pending', 'Policy pending'] },
+    ],
+    policy: 'These are planned one-time purchases, not subscriptions: pay once for a balance, with no recurring charge and nothing to cancel. Purchased pack credits never expire under the proposed site policy. There is no checkout to complete today. Confirm the final pack price, credit charge, watermark policy, and refund terms when purchases become available; this preview does not create a charge or add a balance to an account.',
+    estimate: 'Estimated videos = floor(pack credits ÷ credits per accepted configuration). Estimated total seconds = estimated videos × selected clip duration. Both estimates stay pending until the H3 credit rate is configured. Different output settings can use different rates, so a pack cannot honestly promise a fixed number of videos without naming the configuration. Extra attempts also reduce the number of finished clips a balance can cover.',
+    // TODO: Before enabling checkout, verify small adjacent price gaps and
+    // progressively larger credit increments against the finalized monetary prices.
+  },
+  costs: {
+    heading: 'Cost per video',
+    introduction: 'Use the same configuration when comparing a MiniMax H3 price across services. The six rows below are planning scenarios for the documented H3 output choices, not H3.1 specifications or an active quote. The credit rate and monetary conversion are deliberately left unfilled. A confirmed MiniMax H3 API charge, our own site credit charge, and an effective price after choosing a pack are separate values.',
+    columns: ['Resolution', 'Duration', 'Credit calculation', 'Cash equivalent'],
+    rows: [
+      { resolution: '768P', duration: '5s' },
+      { resolution: '768P', duration: '10s' },
+      { resolution: '768P', duration: '15s' },
+      { resolution: '2K', duration: '5s' },
+      { resolution: '2K', duration: '10s' },
+      { resolution: '2K', duration: '15s' },
+    ],
+    creditFormula: '× <PRICE_TODO> credits/s = <PRICE_TODO> credits',
+    cashFormula: '<PRICE_TODO> credits × <PRICE_TODO> per credit = <PRICE_TODO>',
+    explanation: 'The displayed multiplication is a planning formula. Final quotes must follow the selected provider’s actual billing unit, rounding, supported settings, and any documented minimum charge. If a provider bills by a completed clip rather than by each second, the final quote must use that rule. Do not treat the formula as a promise that every route exposes per-second billing or that a prepared brief has already reserved credits.',
+    source: 'Check the official H3 creation reference',
+    sourceHref: 'https://platform.minimax.io/docs/api-reference/video-generation-v2-create',
+    comparisonLead: 'For the differences between the available models, read the',
+    comparisonLink: 'H3 Max capability comparison',
+    comparisonTail: 'before choosing which provider quote to compare.',
+  },
+  free: {
+    heading: 'Free credits',
+    introduction: 'Free allowances are still being configured. The table distinguishes a visitor allowance from a daily allowance after registration so that an account benefit is not confused with a public demo. Neither a free generation count nor a daily claim is active in the current workspace. Preparing a prompt is available without a generation charge; it does not submit a video job.',
+    columns: ['Allowance', 'Credits', 'Estimated videos', 'Current status'],
+    rows: [
+      { label: 'Visitor welcome credits', credits: PRICE_TODO, videos: PRICE_TODO, status: 'Not enabled' },
+      { label: 'Registered account · daily credits', credits: PRICE_TODO, videos: PRICE_TODO, status: 'Not enabled' },
+    ],
+    note: 'Free-credit eligibility, reset times, and any promotional expiry terms will be displayed with the final allowance. The never-expire policy above describes purchased packs; do not assume it establishes the rules of a promotion that has not launched. A free allowance will also need the same confirmed generation rate before it can be translated into a useful number of clips.',
+    detailLead: 'Full eligibility and claim instructions will appear in the',
+    detailLink: 'free credits guide',
+    detailTail: 'when it is published.',
+    href: '/free',
+    published: false,
+    status: 'coming soon',
+    // TODO: Enable this link only after /free is approved and published.
+  },
+  comparison: {
+    heading: 'vs Official pricing',
+    introduction: 'Compare the purchase model as well as the headline amount. A consumer membership, a provider API request, and a balance on this independent website can cover different products and conditions. Credits belong to the service that issues them; a balance here should not be assumed to work in Hailuo AI or in a fal account. This table does not describe an unannounced H3.1 plan.',
+    columns: ['Service', 'Purchase model', 'What to compare', 'Price'],
+    rows: [
+      { service: 'This website', model: 'Planned one-time credit packs; no subscription', compare: 'Site credits, the confirmed generation quote, delivery policy, and final checkout terms.', price: PRICE_TODO, href: '#credit-packs', source: 'Pack preview' },
+      { service: 'Official subscription · Hailuo AI', model: 'Recurring membership, subject to the current official terms', compare: 'Included allowance, model access, membership period, delivery conditions, and official account benefits.', price: PRICE_TODO, href: 'https://hailuoai.video/doc/payment-policy.html', source: 'Official subscription terms' },
+      { service: 'fal.ai · usage-based API', model: 'Model-specific metered requests', compare: 'The exact route, billing unit, output settings, and any documented input-processing charges.', price: PRICE_TODO, href: 'https://fal.ai/pricing', source: 'fal billing details' },
+    ],
+    explanation: 'Different figures can reflect different delivery settings, billing units, included services, and commercial terms. Compare the same resolution, duration, reference mode, and audio requirements before calling one offer cheaper. Hailuo’s consumer subscription is separate from MiniMax’s pay-as-you-go API; a membership should not be assumed to include API usage or every H3 configuration. A provider’s rate is not automatically our retail credit price. Record the date and conditions of a quote so a later comparison remains understandable.',
+  },
+  faq: {
+    heading: 'FAQ',
+    items: [
+      { question: 'Is MiniMax H3.1 pricing available now?', answer: 'Official details not yet announced. The pack sizes shown here are a preview of this independent website’s proposed offer for its current H3 workspace. They are not official H3.1 prices. Purchases remain disabled until the monetary amounts, generation rates, and checkout terms are confirmed and displayed before payment.' },
+      { question: 'Are these credit packs a subscription?', answer: 'No. The proposed packs are one-time purchases of a credit balance, with no recurring payment and no subscription to cancel. You would decide whether to buy another pack when you need it. Checkout is currently disabled, so viewing a tier or preparing a prompt does not start any payment agreement.' },
+      { question: 'Do purchased credits expire?', answer: 'Purchased pack credits never expire under the proposed site policy shown in the table. That commitment is separate from any future promotional or daily free allowance, whose eligibility and expiry terms still need to be published. No pack is currently on sale, and this preview does not change an existing account balance.' },
+      { question: 'Can I get a refund for a credit pack?', answer: 'Refund terms have not been finalized, and purchases are currently disabled. Before sales open, the checkout must explain eligibility, how used credits affect a request, and how to contact support. Do not assume that a proposed pack is refundable or non-refundable from this preview; read the final terms before making a purchase.' },
+      { question: 'How many H3 videos can I generate with a pack?', answer: 'Divide the pack balance by the confirmed credit charge for the exact generation settings, then round down to whole requests. That charge has not been configured, so clip counts remain placeholders. Resolution, duration, and documented extras can affect the quote, while additional attempts reduce the number of finished clips your balance covers.' },
+      { question: 'Will H3.1 cost more when it launches?', answer: 'Official details not yet announced. We cannot promise the same price, a higher charge, or a conversion rate for an unannounced model. If official H3.1 information becomes available, this page will be updated with the verified provider terms and the site’s own proposed quote before a new charge is offered.' },
+      { question: 'Are videos from these packs watermark-free?', answer: 'The site’s watermark policy is still pending verification of the actual generation and delivery route. The table therefore makes no watermark-free guarantee for any tier. Before purchasing or publishing a clip, check the confirmed delivery terms and inspect the resulting file; a model name or pack size alone does not establish those conditions.' },
+      { question: 'How many free credits do visitors and registered users receive?', answer: 'Both the visitor allowance and the daily registered-user allowance remain placeholders and are not enabled in the current workspace. We will publish the amount, claim rules, and any reset or expiry conditions together. Until a generation rate is configured, an allowance also cannot honestly be advertised as a fixed number of free videos.' },
+      { question: 'Why can this site cost differently from the official service or fal.ai?', answer: 'Each service defines its own billing unit, included features, and delivery conditions. An official membership can bundle account benefits, while an API route quotes usage for a particular configuration. This website proposes a separate credit balance. Compare equivalent settings and current terms, and do not assume that credits or membership benefits transfer between services.' },
+    ],
+  },
+  closing: {
+    lead: 'Start with a focused brief in the',
+    link: 'MiniMax H3.1 video generator',
+    tail: 'then return for a confirmed quote when live generation and purchases are enabled.',
+    updated: 'Last updated:',
+  },
+} as const;
