@@ -18,9 +18,6 @@ COPY config ./config
 COPY apps/next-app ./apps/next-app
 COPY libs ./libs
 COPY scripts ./scripts
-# Copy sibling app package.json files for pnpm workspace resolution
-COPY apps/nuxt-app/package.json ./apps/nuxt-app/package.json
-COPY apps/tanstack-app/package.json ./apps/tanstack-app/package.json
 
 # Accept build arguments for CI/CD environments
 ARG NEXT_PUBLIC_TURNSTILE_SITE_KEY
@@ -72,4 +69,4 @@ ENV NODE_ENV=production
 ENV HOSTNAME="0.0.0.0"
 
 # Start the application
-CMD ["node", "apps/next-app/server.js"] 
+CMD ["node", "apps/next-app/server.js"]
