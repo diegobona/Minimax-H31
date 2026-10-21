@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import localFont from 'next/font/local';
 import { ArrowUpRight } from 'lucide-react';
 import { homeContent, homeSources } from '@/content/home';
@@ -20,7 +21,7 @@ const mono = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://minimax-h31.com'),
-  icons: { icon: '/favicon.ico' },
+  icons: { icon: '/brand/favicon.svg' },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
@@ -33,8 +34,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           <header className="minimax-header">
             <div className="minimax-container minimax-header-inner">
               <Link href="/" className="minimax-wordmark" aria-label={site.name}>
-                <span className="minimax-mark" aria-hidden="true">{site.mark}<span /></span>
-                <span>{site.name}<span className="minimax-domain">.com</span></span>
+                <Image className="minimax-mark" src="/brand/video-mark.svg" alt="" width={44} height={44} priority />
+                <span className="minimax-wordmark-copy"><strong>{site.wordmark}</strong><span>{site.name}.com</span></span>
               </Link>
               <nav aria-label={site.navigationLabel}>
                 {site.navigation.filter((entry) => entry.published).map((entry) => (

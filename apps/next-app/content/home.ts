@@ -18,7 +18,7 @@ export const homeContent = {
   },
   site: {
     name: 'minimax-h31',
-    mark: 'm',
+    wordmark: 'MINIMAX H3.1',
     home: 'Home',
     skip: 'Skip to main content',
     navigationLabel: 'Main navigation',

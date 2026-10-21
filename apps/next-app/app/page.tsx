@@ -44,9 +44,10 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
   return (
     <article className="minimax-home">
       <div className="minimax-container minimax-hero">
-        <div className="minimax-hero-topline"><p className="minimax-eyebrow">{c.hero.eyebrow}</p><span className="minimax-model-badge"><span aria-hidden="true" />{c.hero.badge}</span></div>
+        <div className="minimax-hero-topline"><p className="minimax-eyebrow">{c.hero.eyebrow}</p></div>
         <h1>{c.hero.heading}</h1>
         <p className="minimax-hero-description">{c.hero.introduction}</p>
+        <span className="minimax-model-badge"><span aria-hidden="true" />{c.hero.badge}</span>
         <div id="generator" className="minimax-generator-anchor">
           <div className="minimax-workspace">
             <VideoWorkspace copy={c.tool} initialExample={selectedExample} />
