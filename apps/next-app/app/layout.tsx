@@ -21,7 +21,14 @@ const mono = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://minimax-h31.com'),
-  icons: { icon: '/brand/favicon.svg' },
+  icons: {
+    icon: [
+      { url: '/brand/favicon.svg?v=3ebd36e3', type: 'image/svg+xml', sizes: 'any' },
+      { url: '/favicon-32x32.png?v=3ebd36e3', type: 'image/png', sizes: '32x32' },
+      { url: '/favicon-16x16.png?v=3ebd36e3', type: 'image/png', sizes: '16x16' },
+    ],
+    shortcut: '/favicon.ico?v=3ebd36e3',
+  },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
@@ -35,7 +42,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             <div className="minimax-container minimax-header-inner">
               <Link href="/" className="minimax-wordmark" aria-label={site.name}>
                 <Image className="minimax-mark" src="/brand/video-mark.svg" alt="" width={44} height={44} priority />
-                <span className="minimax-wordmark-copy"><strong>{site.wordmark}</strong><span>{site.name}.com</span></span>
+                <span className="minimax-wordmark-copy"><strong>{site.wordmark}</strong></span>
               </Link>
               <nav aria-label={site.navigationLabel}>
                 {site.navigation.filter((entry) => entry.published).map((entry) => (

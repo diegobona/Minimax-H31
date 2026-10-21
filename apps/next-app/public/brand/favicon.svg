@@ -1,7 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56" fill="none">
   <style>
-    :root { --mark-background: #121214; --mark-rose: #f52b75; --mark-coral: #ff5b4a; --mark-orange: #ff7a38; }
-    .mark-background { fill: var(--mark-background); }
+    :root { --mark-rose: #f52b75; --mark-coral: #ff5b4a; --mark-orange: #ff7a38; }
     .mark-rose { stop-color: var(--mark-rose); }
     .mark-coral { stop-color: var(--mark-coral); }
     .mark-orange { stop-color: var(--mark-orange); }
@@ -13,8 +12,7 @@
       <stop class="mark-orange" offset="1"/>
     </linearGradient>
   </defs>
-  <rect class="mark-background" width="64" height="64" rx="14"/>
-  <g transform="translate(4 4)" fill="url(#favicon-color)">
+  <g fill="url(#favicon-color)">
     <rect x="4" y="23" width="10" height="25" rx="5"/>
     <rect x="20" y="8" width="11" height="40" rx="5.5"/>
     <path d="M40.1 17.9C38.3 16.7 36 18 36 20.1V43.9C36 46 38.3 47.3 40.1 46.1L53.2 34.2C54.4 33.1 54.4 31.1 53.2 30L40.1 17.9Z"/>

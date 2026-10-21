@@ -40,9 +40,8 @@
 .minimax-header { color: var(--site-ink); background: var(--site-paper); border-top: 5px solid transparent; border-image: var(--site-brand-gradient) 1; }
 .minimax-header-inner { min-height: 66px; display: flex; align-items: center; gap: 32px; }
 .minimax-wordmark { display: inline-flex; align-items: center; gap: 10px; white-space: nowrap; }
-.minimax-wordmark-copy { display: flex; flex-direction: column; gap: 2px; }
+.minimax-wordmark-copy { display: flex; align-items: center; }
 .minimax-wordmark-copy strong { font-size: 19px; line-height: 1.1; font-weight: 750; letter-spacing: -.035em; }
-.minimax-wordmark-copy > span { color: var(--site-muted); font-size: 10px; letter-spacing: .015em; }
 .minimax-mark { width: 42px; height: 42px; flex-shrink: 0; }
 .minimax-header nav { margin-left: auto; display: flex; gap: 24px; font-size: 13px; font-weight: 550; }
 .minimax-header nav a { padding-block: 12px; border-bottom: 2px solid transparent; }
@@ -337,7 +336,6 @@
   .minimax-header-inner { min-height: 60px; gap: 20px; }
   .minimax-wordmark { gap: 8px; }
   .minimax-wordmark-copy strong { font-size: 15px; }
-  .minimax-wordmark-copy > span { font-size: 8px; }
   .minimax-mark { width: 34px; height: 34px; }
   .minimax-header nav { margin-left: auto; gap: 14px; font-size: 11px; }
   .minimax-header nav a { padding-block: 20px; }
