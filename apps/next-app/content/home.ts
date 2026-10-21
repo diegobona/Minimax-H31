@@ -28,7 +28,7 @@ export const homeContent = {
     openTool: 'Open generator',
     navigation: [
       { label: 'Home', href: '/', published: true },
-      { label: 'ComfyUI', href: '/minimax-h3.1-comfyui', published: false },
+      { label: 'ComfyUI', href: '/minimax-h3.1-comfyui', published: true },
       { label: 'H3.1 Max', href: '/minimax-h3.1-max', published: false },
       { label: 'Free', href: '/minimax-h3.1-free', published: false },
       { label: 'Pricing', href: '/minimax-h3.1-pricing', published: false },
@@ -213,13 +213,14 @@ export const homeContent = {
   resources: {
     label: 'KEEP EXPLORING',
     heading: 'A closer look, when you need it',
-    description: 'These guides are being prepared. Their cards will become links when the pages are published.',
+    description: 'Open the published ComfyUI guide, or see what the upcoming guides will cover.',
+    openLabel: 'Read the guide',
     status: 'In preparation',
     items: [
-      { title: 'ComfyUI', href: '/minimax-h3.1-comfyui', description: 'Understand the workflow and verified model support before building a local video pipeline.' },
-      { title: 'H3.1 Max', href: '/minimax-h3.1-max', description: 'Separate confirmed H3 Max information from claims about an unannounced H3.1 Max.' },
-      { title: 'Pricing', href: '/minimax-h3.1-pricing', description: 'Check confirmed provider costs and the site’s own credit policy when it is configured.' },
-      { title: 'Release Date', href: '/minimax-h3.1-release-date', description: 'Follow source-checked announcements without assigning a date to an unconfirmed model.' },
+      { title: 'ComfyUI', href: '/minimax-h3.1-comfyui', published: true, description: 'Understand the workflow and verified model support before building a local video pipeline.' },
+      { title: 'H3.1 Max', href: '/minimax-h3.1-max', published: false, description: 'Separate confirmed H3 Max information from claims about an unannounced H3.1 Max.' },
+      { title: 'Pricing', href: '/minimax-h3.1-pricing', published: false, description: 'Check confirmed provider costs and the site’s own credit policy when it is configured.' },
+      { title: 'Release Date', href: '/minimax-h3.1-release-date', published: false, description: 'Follow source-checked announcements without assigning a date to an unconfirmed model.' },
     ],
     returnLead: 'Have a scene in mind? Bring it back to the',
     returnLink: 'MiniMax H3.1 video generator',

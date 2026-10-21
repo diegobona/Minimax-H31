@@ -120,7 +120,10 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
         <section className="minimax-section minimax-resources" id="resources">
           <SectionHeading label={c.resources.label} heading={c.resources.heading} />
           <p className="minimax-section-intro">{c.resources.description}</p>
-          <div className="minimax-resource-grid">{c.resources.items.map((item) => <div key={item.href} className="minimax-resource-card"><div><h3>{item.title}</h3><ArrowUpRight size={17} aria-hidden="true" /></div><p>{item.description}</p><span>{c.resources.status}</span></div>)}</div>
+          <div className="minimax-resource-grid">{c.resources.items.map((item) => {
+            const card = <><div><h3>{item.title}</h3><ArrowUpRight size={17} aria-hidden="true" /></div><p>{item.description}</p><span>{item.published ? c.resources.openLabel : c.resources.status}</span></>;
+            return item.published ? <Link key={item.href} href={item.href} className="minimax-resource-card minimax-resource-card-link">{card}</Link> : <div key={item.href} className="minimax-resource-card">{card}</div>;
+          })}</div>
           <p className="minimax-return-link">{c.resources.returnLead} <Link href="/#generator">{c.resources.returnLink}<ArrowRight size={14} aria-hidden="true" /></Link> {c.resources.returnTail}</p>
         </section>
         <p className="minimax-last-updated">{c.lastUpdatedLabel} <time dateTime={HOME_UPDATED}>{HOME_UPDATED}</time></p>

@@ -9,7 +9,7 @@ export const sitemapAllowlist = [
   '/minimax-h3.1-release-date',
 ] as const;
 
-const publishedPaths: ReadonlySet<string> = new Set(['/']);
+const publishedPaths: ReadonlySet<string> = new Set(['/', '/minimax-h3.1-comfyui']);
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return sitemapAllowlist.filter((path) => publishedPaths.has(path)).map((path) => ({
