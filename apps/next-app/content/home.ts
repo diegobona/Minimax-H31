@@ -29,7 +29,7 @@ export const homeContent = {
     navigation: [
       { label: 'Home', href: '/', published: true },
       { label: 'ComfyUI', href: '/minimax-h3.1-comfyui', published: true },
-      { label: 'H3.1 Max', href: '/minimax-h3.1-max', published: false },
+      { label: 'H3.1 Max', href: '/minimax-h3.1-max', published: true },
       { label: 'Free', href: '/minimax-h3.1-free', published: false },
       { label: 'Pricing', href: '/minimax-h3.1-pricing', published: false },
       { label: 'Prompts', href: '/minimax-h3.1-prompts', published: false },
@@ -213,12 +213,12 @@ export const homeContent = {
   resources: {
     label: 'KEEP EXPLORING',
     heading: 'A closer look, when you need it',
-    description: 'Open the published ComfyUI guide, or see what the upcoming guides will cover.',
+    description: 'Explore the ComfyUI and H3 Max guides, or see what the upcoming pages will cover.',
     openLabel: 'Read the guide',
     status: 'In preparation',
     items: [
       { title: 'ComfyUI', href: '/minimax-h3.1-comfyui', published: true, description: 'Understand the workflow and verified model support before building a local video pipeline.' },
-      { title: 'H3.1 Max', href: '/minimax-h3.1-max', published: false, description: 'Separate confirmed H3 Max information from claims about an unannounced H3.1 Max.' },
+      { title: 'H3.1 Max', href: '/minimax-h3.1-max', published: true, description: 'Separate confirmed H3 Max information from claims about an unannounced H3.1 Max.' },
       { title: 'Pricing', href: '/minimax-h3.1-pricing', published: false, description: 'Check confirmed provider costs and the site’s own credit policy when it is configured.' },
       { title: 'Release Date', href: '/minimax-h3.1-release-date', published: false, description: 'Follow source-checked announcements without assigning a date to an unconfirmed model.' },
     ],

@@ -234,6 +234,20 @@
 .minimax-guide-troubleshooting td:last-child { min-width: 260px; }
 .minimax-guide-troubleshooting .minimax-guide-source { display: flex; width: fit-content; margin-top: 10px !important; }
 .minimax-guide-availability { margin-top: 20px; font-size: 14px; color: var(--site-ink); }
+.minimax-max-intro { padding-top: 44px; padding-bottom: 36px; border-bottom: 1px solid var(--site-line); }
+.minimax-max-intro h1 { max-width: none; }
+.minimax-max-status { font-size: 11px; color: var(--site-muted); }
+.minimax-max-reviewed { margin-top: 20px; font-size: 10px; color: var(--site-muted); }
+.minimax-max-sources { display: flex; flex-wrap: wrap; gap: 18px; }
+.minimax-max-comparison th:first-child { width: 16%; }
+.minimax-max-comparison td { width: 42%; min-width: 240px; color: var(--site-muted); }
+.minimax-max-comparison .minimax-guide-source { display: flex; width: fit-content; margin-top: 9px !important; }
+.minimax-max-scenarios { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 25px; }
+.minimax-max-alternatives { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 16px; margin-top: 25px; }
+.minimax-max-alternatives h3 > a { display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 600; }
+.minimax-pending-link { display: inline-flex; align-items: baseline; flex-wrap: wrap; column-gap: 6px; color: var(--site-ink); }
+.minimax-pending-link > span { color: var(--site-muted); font-size: .85em; }
+.minimax-site:has(.minimax-max-guide) .minimax-header nav a[href="/minimax-h3.1-comfyui"],.minimax-site:not(:has(.minimax-max-guide)) .minimax-header nav a[href="/minimax-h3.1-max"] { border-color: transparent; }
 @keyframes minimax-spin { to { transform: rotate(360deg); } }
 .minimax-spinner { animation: minimax-spin 1s linear infinite; }
 @media (max-width: 1000px) {
@@ -251,6 +265,8 @@
   .minimax-resource-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
 }
 @media (max-width: 700px) {
+  .minimax-max-scenarios,.minimax-max-alternatives { grid-template-columns: 1fr; }
+  .minimax-max-intro { padding-top: 28px; }
   .minimax-guide-intro { grid-template-columns: 1fr; padding-top: 28px; }
   .minimax-guide h1 { font-size: 33px; }
   .minimax-guide h2 { font-size: 25px; }
@@ -301,6 +317,12 @@
 }
 @media (prefers-reduced-motion: reduce) {
   .minimax-site * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+@media (max-width: 380px) {
+  .minimax-header-inner { gap: 10px; flex-wrap: wrap; }
+  .minimax-wordmark-copy strong { font-size: 13px; }
+  .minimax-mark { width: 30px; height: 30px; }
+  .minimax-header nav { gap: 10px; font-size: 10px; }
 }
 
 @theme inline {
