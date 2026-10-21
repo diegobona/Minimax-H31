@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="760" viewBox="0 0 640 760" role="img" aria-label="Ceramic still-life storyboard illustration">
+<style>:root{--sand:#e6d9bd;--wall:#eee3cf;--wall-shade:#c9b492;--stone:#cfbea2;--stone-light:#e4d7bc;--stone-dark:#b29d7e;--vase:#f8f2e2;--vase-shade:#d4c6aa;--orange:#d9652f;--orange-light:#ed9852;--orange-dark:#ac4624;--leaf:#465a42;--shadow:#b39e7c}</style>
+<defs><linearGradient id="wall" x2="1" y2=".4"><stop stop-color="var(--wall)"/><stop offset="1" stop-color="var(--sand)"/></linearGradient><linearGradient id="vase"><stop stop-color="var(--vase-shade)"/><stop offset=".33" stop-color="var(--vase)"/><stop offset=".72" stop-color="var(--vase)"/><stop offset="1" stop-color="var(--vase-shade)"/></linearGradient><radialGradient id="orange" cx=".32" cy=".27"><stop stop-color="var(--orange-light)"/><stop offset=".7" stop-color="var(--orange)"/><stop offset="1" stop-color="var(--orange-dark)"/></radialGradient></defs>
+<path fill="url(#wall)" d="M0 0h640v760H0z"/><path fill="var(--wall-shade)" d="M480 0h160v508H480z"/><path fill="var(--sand)" d="M0 0h295L0 433z"/><path fill="var(--wall)" d="M480 0h160v92L480 252z"/>
+<path fill="var(--stone-light)" d="m55 540 350-80 180 96-353 92z"/><path fill="var(--stone)" d="m55 540 177 108v112H55z"/><path fill="var(--stone-dark)" d="m232 648 353-92v204H232z"/>
+<ellipse fill="var(--shadow)" cx="338" cy="520" rx="159" ry="22" transform="rotate(-12 338 520)"/>
+<path fill="url(#vase)" d="M251 220h87c-2 43-2 64 19 92 24 32 40 77 37 121-4 53-30 92-100 92s-97-39-100-92c-3-44 13-89 37-121 20-28 21-49 20-92z"/>
+<ellipse fill="var(--vase-shade)" cx="294" cy="220" rx="44" ry="9"/><ellipse fill="var(--stone-dark)" cx="294" cy="220" rx="30" ry="4"/>
+<circle fill="url(#orange)" cx="427" cy="510" r="48"/><path d="M424 465c3-14 13-19 25-16-3 13-11 20-25 16z" fill="var(--leaf)"/>
+</svg>

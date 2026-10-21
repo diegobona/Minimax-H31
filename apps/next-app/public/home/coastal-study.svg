@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="760" viewBox="0 0 640 760" role="img" aria-label="Coastal travel storyboard illustration">
+<style>:root{--sky:#d8e3df;--sea:#729994;--sea-light:#98b5ae;--deep:#557f7d;--foam:#c7d9ca;--cliff:#d8c5a4;--cliff-light:#f1e6cb;--cliff-dark:#ae9779;--road:#e9dfcc;--road-edge:#b29b7b;--wall:#f7edd8;--roof:#b77558;--ink:#485c55;--green:#838965}</style>
+<path fill="var(--sky)" d="M0 0h640v760H0z"/><path fill="var(--sea-light)" d="M0 270c190-20 360-15 640 15v475H0z"/><path fill="var(--sea)" d="M0 356c220-50 370-48 640-25v429H0z"/><path fill="var(--deep)" d="M287 543c135-48 244-35 353-21v238H287z"/>
+<path fill="var(--cliff)" d="M0 105c84-1 116 74 134 163 11 56 60 54 72 113 15 72 54 108 124 146-34 33-99 52-148 64 60 26 102 97 107 169H0z"/>
+<path fill="var(--cliff-light)" d="M0 107c61-9 88 31 108 106 12 44 10 102 43 123 63 39 14 117 91 163-68-8-109-53-129-117-20-61-45-60-62-118C34 209 28 162 0 158z"/>
+<path fill="var(--cliff-dark)" d="M0 432c99 7 129 60 185 100 35 25 91 24 145-5-28 36-70 60-145 71 46 38 70 89 89 162H0z"/>
+<path fill="var(--road-edge)" d="M0 748c117-62 208-81 198-125-7-33-100-41-113-83-19-59 92-86 99-121 8-38-83-68-95-120l18-3c9 39 102 74 98 122-4 50-110 69-91 116 14 34 107 41 111 87 4 53-81 82-158 139H0z"/>
+<path fill="var(--road)" d="M0 727c96-43 201-69 185-104-12-28-105-47-112-83-9-47 98-85 99-121 1-32-77-64-86-115l13-4c10 46 95 77 94 119-1 46-110 77-106 118 3 33 101 48 117 82 21 46-86 83-168 141H0z"/>
+<path fill="var(--foam)" d="M350 532c55-20 98-23 153-21-59 7-94 16-124 30zM405 657c83-20 163-25 235-16v7c-92-2-162 2-235 9z"/>
+<path fill="var(--green)" d="M0 606c47-28 82-7 113 12-43 5-78 23-113 42zM38 412c18-15 37-11 49-1-17 12-32 13-49 1z"/>
+<path fill="var(--wall)" d="M147 350h65v65h-65z"/><path fill="var(--roof)" d="m137 353 42-31 43 31z"/><path fill="var(--ink)" d="M168 384h17v31h-17zM193 367h10v12h-10z"/>
+</svg>

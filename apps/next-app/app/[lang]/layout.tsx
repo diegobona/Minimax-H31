@@ -10,6 +10,7 @@ import { translations } from "@libs/i18n";
 import { ThemeProvider } from '@libs/react-shared/hooks/use-theme';
 import { ThemeScript } from "@libs/react-shared/components/theme-script";
 import { SharedAppWrapper } from "@/components/shared-app-wrapper";
+import { notFound } from 'next/navigation';
 
 
 export async function generateViewport({ params }: { params: Promise<{ lang: string }> }): Promise<Viewport> {
@@ -20,10 +21,12 @@ export async function generateViewport({ params }: { params: Promise<{ lang: str
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params;
+  if (!(i18n.locales as readonly string[]).includes(lang)) notFound();
   const t = translations[lang as keyof typeof translations];
-  
+
   return {
     metadataBase: new URL(process.env.APP_BASE_URL || 'http://localhost:7001'),
+    robots: { index: false, follow: false },
     title: t.home.metadata.title,
     description: t.home.metadata.description,
     keywords: t.home.metadata.keywords,
@@ -89,20 +92,17 @@ export default function RootLayout({
   params: Promise<{ lang: string }>;
 }) {
   const { lang } = use(params);
-  
+  if (!(i18n.locales as readonly string[]).includes(lang)) notFound();
+
   return (
-    <html lang={lang} suppressHydrationWarning>
-      <head>
+    <div lang={lang} className={`${GeistSans.variable} ${GeistMono.variable} font-sans antialiased`}>
         <ThemeScript />
-      </head>
-      <body className={`${GeistSans.variable} ${GeistMono.variable} font-sans antialiased`}>
         <ThemeProvider>
           <SharedAppWrapper>
             {children}
             <Toaster />
           </SharedAppWrapper>
         </ThemeProvider>
-      </body>
-    </html>
+    </div>
   );
-} 
+}
