@@ -1,34 +1,28 @@
 import type { Metadata } from 'next';
+import { Suspense } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowRight, ArrowUpRight, Check, ChevronDown, Info } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, ChevronDown, Info } from 'lucide-react';
 import { VideoWorkspace } from '@/components/tool/video-workspace';
-import { DEFAULT_OG_IMAGE, HOME_UPDATED, OFFICIAL_UNKNOWN, homeContent as c, homeSources } from '@/content/home';
+import { DEFAULT_OG_IMAGE, homeContent as c, homeSources } from '@/content/home';
 
 export const metadata: Metadata = {
   title: { absolute: c.metadata.title },
   description: c.metadata.description,
   alternates: { canonical: '/' },
   openGraph: { title: c.metadata.title, description: c.metadata.description, url: '/', type: 'website', images: [DEFAULT_OG_IMAGE] },
+  twitter: { card: 'summary_large_image', title: c.metadata.title, description: c.metadata.description, images: [DEFAULT_OG_IMAGE.url] },
 };
 
-function UpdatedTime() {
-  return <time className="minimax-inline-time" dateTime={HOME_UPDATED}>{HOME_UPDATED}</time>;
-}
-
 function RecordedText({ text }: { text: string }) {
-  if (!text.includes(OFFICIAL_UNKNOWN)) return <>{text}</>;
-  const [before, after] = text.split(OFFICIAL_UNKNOWN);
-  return <>{before}{OFFICIAL_UNKNOWN} <UpdatedTime />{after}</>;
+  return <>{text}</>;
 }
 
 function SectionHeading({ label, heading }: { label: string; heading: string }) {
   return <div className="minimax-section-heading"><p className="minimax-eyebrow">{label}</p><h2>{heading}</h2></div>;
 }
 
-export default async function HomePage({ searchParams }: { searchParams: Promise<{ example?: string }> }) {
-  const query = await searchParams;
-  const selectedExample = c.tool.examples.find((example) => example.id === query.example);
+export default function HomePage() {
   const faqLd = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -36,7 +30,7 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
       '@type': 'Question', name: question,
       acceptedAnswer: {
         '@type': 'Answer',
-        text: answer.replace(OFFICIAL_UNKNOWN, `${OFFICIAL_UNKNOWN} ${HOME_UPDATED}`),
+        text: answer,
       },
     })),
   };
@@ -47,10 +41,11 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
         <div className="minimax-hero-topline"><p className="minimax-eyebrow">{c.hero.eyebrow}</p></div>
         <h1>{c.hero.heading}</h1>
         <p className="minimax-hero-description">{c.hero.introduction}</p>
-        <span className="minimax-model-badge"><span aria-hidden="true" />{c.hero.badge}</span>
         <div id="generator" className="minimax-generator-anchor">
           <div className="minimax-workspace">
-            <VideoWorkspace copy={c.tool} initialExample={selectedExample} />
+            <Suspense fallback={<div className="minimax-tool-form" aria-busy="true"><p>{c.tool.title}</p></div>}>
+              <VideoWorkspace copy={c.tool} />
+            </Suspense>
             <section className="minimax-examples" aria-labelledby="example-prompts">
               <div className="minimax-examples-heading"><h2 id="example-prompts" className="text-lg font-semibold max-sm:text-base">{c.tool.previewHeading}</h2></div>
               <div className="minimax-example-grid">{c.tool.examples.map((example) => <div className="minimax-example-card" key={example.id}>
@@ -58,6 +53,7 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
                 <div className="minimax-example-caption"><span className="minimax-eyebrow">{c.tool.previewLabel}</span><h3>{example.title}</h3><Link href={`/?example=${example.id}#generator`} scroll={false}>{c.tool.usePrompt}<ArrowUpRight size={14} aria-hidden="true" /></Link></div>
               </div>)}</div>
               <p className="minimax-example-disclosure">{c.tool.previewDisclosure}</p>
+              <div className="minimax-empty-result"><span aria-hidden="true">↗</span><p>{c.tool.previewEmpty}</p></div>
             </section>
           </div>
           <p className="minimax-model-explanation"><Info size={16} aria-hidden="true" /><span>{c.hero.explanation}</span></p>
@@ -87,7 +83,7 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
             <thead><tr>{c.availability.columns.map((column) => <th key={column} scope="col">{column}</th>)}</tr></thead>
             <tbody>{c.availability.rows.map((row) => <tr key={row.version}><th scope="row">{row.version}</th><td><RecordedText text={row.release} /></td><td><a href={row.source} target="_blank" rel="noreferrer">{row.label}<ArrowUpRight size={12} aria-hidden="true" /></a></td></tr>)}</tbody>
           </table></div>
-          <div className="minimax-availability-note"><div className="minimax-availability-check"><Check size={16} aria-hidden="true" /><p>{c.availability.updatedLabel} <UpdatedTime /></p></div><p><strong>{c.availability.differenceLabel}:</strong> {OFFICIAL_UNKNOWN} <UpdatedTime /></p><p>{c.availability.note}</p><a href={homeSources.official} target="_blank" rel="noreferrer">{c.availability.officialLink}<ArrowUpRight size={14} aria-hidden="true" /></a></div>
+          <div className="minimax-availability-note"><p>{c.availability.note}</p><a href={homeSources.official} target="_blank" rel="noreferrer">{c.availability.officialLink}<ArrowUpRight size={14} aria-hidden="true" /></a></div>
         </section>
 
         <section className="minimax-section" id="prompt-guide">
@@ -121,7 +117,6 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
           })}</div>
           <p className="minimax-return-link">{c.resources.returnLead} <Link href="/#generator">{c.resources.returnLink}<ArrowRight size={14} aria-hidden="true" /></Link> {c.resources.returnTail}</p>
         </section>
-        <p className="minimax-last-updated">{c.lastUpdatedLabel} <time dateTime={HOME_UPDATED}>{HOME_UPDATED}</time></p>
       </div>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
     </article>

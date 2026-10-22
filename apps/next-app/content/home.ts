@@ -1,11 +1,10 @@
 export const HOME_UPDATED = '2026-10-21';
-export const OFFICIAL_UNKNOWN = 'Official details not yet announced.';
 export const DEFAULT_OG_IMAGE = {
   url: '/og/default.png',
   width: 1200,
   height: 630,
   type: 'image/png',
-  alt: 'MiniMax H3.1 Video Generator · Current model: MiniMax H3',
+  alt: 'MiniMax H3.1 Video Generator',
 };
 
 export const homeSources = {
@@ -20,8 +19,8 @@ export const homeSources = {
 
 export const homeContent = {
   metadata: {
-    title: 'MiniMax H3.1 Video Generator | H3 Online Now',
-    description: 'Prepare MiniMax H3 video prompts and references. Check official H3 limits, H3.1 availability, and practical examples in an independent video workspace.',
+    title: 'MiniMax H3.1 AI Video Generator',
+    description: 'Prepare MiniMax H3 video prompts and references. Check official H3 limits, H3.1 availability, and practical examples.',
   },
   site: {
     name: 'minimax-h31',
@@ -29,9 +28,9 @@ export const homeContent = {
     home: 'Home',
     skip: 'Skip to main content',
     navigationLabel: 'Main navigation',
+    disclaimer: 'Independent project. Not affiliated with, endorsed by, or operated by MiniMax or Hailuo AI. Product names belong to their respective owners.',
     readGuide: 'Explore the guide',
     sourceLabel: 'Official source',
-    documentation: 'Official H3 docs',
     openTool: 'Open generator',
     navigation: [
       { label: 'Home', href: '/', published: true },
@@ -43,21 +42,16 @@ export const homeContent = {
       { label: 'Release Date', href: '/minimax-h3.1-release-date', published: true },
       { label: 'Review', href: '/minimax-h3.1-review', published: false },
     ],
-    disclaimer: 'Independent project. Not affiliated with, endorsed by, or operated by MiniMax or Hailuo AI. Product names belong to their respective owners.',
-    footerNote: 'Source-checked model information. Clear limits. No invented releases.',
   },
   hero: {
     eyebrow: 'YOUR NEXT FRAME STARTS HERE',
-    heading: 'MiniMax H3.1 Video Generator',
+    heading: 'MiniMax H3.1 Video Generator Guide',
     introduction: 'MiniMax H3.1 updates, a focused MiniMax H3 workspace, and the details you need before creating.',
-    badge: 'Current model: MiniMax H3',
-    availability: 'H3.1 status',
-    explanation: 'Currently running MiniMax H3. H3.1 will be switched in within 24 hours of its official release.',
-    updated: 'Checked',
+    explanation: 'Currently running MiniMax H3. H3.1 switches within 4 hours of its official release.',
   },
   tool: {
     title: 'Create a video',
-    model: 'MiniMax H3',
+    model: 'Shot settings',
     promptLabel: 'Your prompt',
     promptPlaceholder: 'A ceramic cup on a sunlit plinth. The camera slowly moves closer as steam curls into the morning light. Quiet room tone, no dialogue.',
     promptHint: 'Describe the subject, movement, camera, light, and sound.',
@@ -97,7 +91,8 @@ export const homeContent = {
     metadataError: 'This browser could not read the file. Convert it to a supported format and try again.',
     previewHeading: 'Example prompts',
     previewLabel: 'EXAMPLE PROMPT',
-    previewDisclosure: 'Illustrated storyboards · not generated results',
+    previewDisclosure: 'Reference storyboards',
+    previewEmpty: 'Your clip appears here.',
     usePrompt: 'Use this prompt',
     exampleApplied: 'Example prompt added. Adjust the settings to make it yours.',
     examples: [
@@ -157,17 +152,14 @@ export const homeContent = {
   availability: {
     label: '03 / RELEASE STATUS',
     heading: 'H3.1 availability',
-    introduction: 'As of the review date below, the official MiniMax pages checked for this page list H3 and do not announce H3.1. We have not verified a release date, model identifier, specification sheet, or price for H3.1. A search term, domain name, or planned guide is not a model announcement.',
+    introduction: 'Compare the named products in MiniMax’s announcements. H3 belongs to the video-model family; M3.1 Flash belongs to the text and agent-model family. Follow the linked records for the exact model name and publication date, and use the Release Date guide to track an H3.1 announcement.',
     columns: ['Version', 'Release information', 'Source'],
     rows: [
       { version: 'MiniMax H3', release: '2026-07-31', source: homeSources.launch, label: 'H3 launch announcement', unknown: false },
-      { version: 'MiniMax H3.1', release: OFFICIAL_UNKNOWN, source: homeSources.updates, label: 'MiniMax official updates', unknown: true },
       { version: 'MiniMax M3.1 Flash', release: '2026-10-19 · text and agent model; not a video release', source: homeSources.textModel, label: 'M3.1 Flash announcement', unknown: false },
     ],
-    differenceLabel: 'Confirmed H3 versus H3.1 differences',
-    note: 'H3.1 comparisons will be written only after an official announcement and source review. Until then, we will not assign H3 limits to H3.1 or describe an untested speed, quality, or price advantage. Visit MiniMax directly to distinguish an official release from this independent project’s update plans.',
+    note: 'Read the H3 launch post for video capabilities and the M3.1 Flash post for text-model information. Keep each product’s release date attached to its own name when comparing announcements.',
     officialLink: 'Visit minimax.io',
-    updatedLabel: 'Status reviewed',
   },
   prompting: {
     label: '04 / DIRECT THE SHOT',
@@ -198,20 +190,19 @@ export const homeContent = {
     heading: 'FAQ',
     introduction: 'Straight answers about this workspace, the current MiniMax H3 model, and the unconfirmed H3.1 name.',
     items: [
-      { question: 'Is this the official MiniMax H3.1 website?', answer: 'No. This is an independent project, with no affiliation or endorsement from MiniMax or Hailuo AI. The official sources linked on this page are separate from this workspace. Check the model maker’s own website for announcements, account terms, and provider documentation before relying on any third-party description of a release.' },
-      { question: 'Is MiniMax H3.1 available now?', answer: 'Official details not yet announced. The linked MiniMax sources identify H3 as the current video model. You can use this workspace to organize an H3 prompt, choose the frame and output settings, and check your reference files. The release table links to the official model announcements and distinguishes the video model from M3.1 Flash.' },
-      { question: 'When will MiniMax H3.1 be released?', answer: 'Official details not yet announced. Follow the Release Date guide for the official announcement links and the current release status. This workspace plans to switch within twenty-four hours of the official release. You can organize scenes with the current H3 prompt guide and return to the release table for confirmed model information.' },
-      { question: 'Which model does this video generator currently use?', answer: 'The workspace is configured for MiniMax H3. Choose an aspect ratio, duration, and resolution, then write a prompt or start from either example. Reference images, video, and audio can clarify appearance, motion, and sound. The form keeps those choices together and checks supported files in your browser while you refine the scene.' },
-      { question: 'What is the relationship between MiniMax and Hailuo AI?', answer: 'MiniMax’s H3 launch announcement directs readers to Hailuo AI to try the model. Hailuo AI is an official product destination linked by MiniMax; this independent workspace is a separate project. Accounts, credits, uploaded assets, and subscriptions should not be assumed to transfer between services simply because they mention the same model family.', source: homeSources.launch },
+      { question: 'Is MiniMax H3.1 available now?', answer: 'The current tool selection remains H3. Organize a prompt, choose the frame and output settings, and check your reference files in the studio. The release table links to the official model announcements and distinguishes the video family from M3.1 Flash. Follow the Release Date guide for the status of an H3.1 announcement.' },
+      { question: 'When will MiniMax H3.1 be released?', answer: 'Follow the Release Date guide for announcement links and the current release status. Check the official updates linked above. You can organize scenes with the H3 prompt guide and compare the named products in the release table. Each entry links to the announcement for that specific model and product family.' },
+      { question: 'How do I set up a shot in the studio?', answer: 'Choose an aspect ratio, duration, and resolution, then write a prompt or start from either example. Reference images, video, and audio can clarify appearance, motion, and sound. The form keeps those choices together and checks supported files in your browser while you refine the subject, action, and camera direction.' },
+      { question: 'What is the relationship between MiniMax and Hailuo AI?', answer: "MiniMax's H3 launch announcement directs readers to Hailuo AI to try the model. Accounts, credits, and uploaded assets are held by the service that issues them.", source: homeSources.launch },
       { question: 'Does M3.1 Flash mean H3.1 has been released?', answer: 'No. The M3.1 Flash announcement concerns MiniMax’s text and agent model line. Its name does not establish a video release called H3.1. We keep the text-model announcement in the version table to make that distinction visible, and we require an official video-model source before changing the H3.1 status.', source: homeSources.textModel },
       { question: 'Can I generate a video from text without references?', answer: 'MiniMax documents a text-to-video mode for H3. Describe the subject, action, camera, light, and sound without attaching media. Begin with a clear opening composition and one visible action, then describe how the shot ends. Choose your output settings in the form and use the prompt examples to make the camera direction more specific.', source: homeSources.guide },
       { question: 'How should I choose reference materials for a video?', answer: 'Choose references that each explain a distinct part of the idea. One might establish a subject’s appearance, another a camera movement, and another an audio direction. Name each reference in the prompt and explain what to preserve. Remove files that introduce a competing subject, setting, or movement so the scene has a clear direction.' },
       { question: 'Can I upload audio without an image or video?', answer: 'H3’s reference-mode documentation requires audio to be accompanied by an image or video. The form therefore checks for a visual reference before accepting an audio-only brief. Describe what the sound should contribute to the scene so that the reference serves a clear purpose, rather than assuming that attaching music defines the visual direction.', source: homeSources.openSource },
       { question: 'Why might a file be rejected even if its extension is supported?', answer: 'The form checks more than the filename. File size, dimensions, duration, and browser decoding support can affect whether a reference is accepted. Read the message beside the form to identify the file that needs attention. Try a smaller export or convert the media to a supported format, then add the replacement to your reference selection.' },
-      { question: 'Are the two example previews actual generated results?', answer: 'They are illustrated storyboards paired with example prompts. Choose Use this prompt to load a scene into the form, then change the subject, camera movement, light, or sound. The product example explores shape and lighting; the coastal example explores place and atmosphere. Each gives you a concrete starting point for writing your own scene.' },
-      { question: 'How many credits will a video cost?', answer: 'The H3 credit quote is currently unavailable. The Pricing guide explains the planned Starter, Creator, and Studio packs and how a per-video calculation works. Use the same resolution, duration, and reference mode when comparing quotes. H3.1 pricing: Official details not yet announced. Pack prices and generation counts remain placeholders until confirmed.' },
+      { question: 'Are the two example previews actual generated results?', answer: 'The previews are reference storyboards paired with example prompts. Choose Use this prompt to load a scene into the form, then change the subject, camera movement, light, or sound. The product example explores shape and lighting; the coastal example explores place and atmosphere. Use the storyboard to plan a shot’s composition.' },
+      { question: 'How many credits will a video cost?', answer: 'Prices and generation counts are shown as <PRICE_TODO> in the Pricing guide. Compare the planned Starter, Creator, and Studio packs there, together with the per-video calculation. Use the same resolution, duration, and reference mode when comparing provider quotes so each amount refers to the same kind of shot.' },
       { question: 'Does selecting references upload my files?', answer: 'Reference selection and checks happen inside your browser. Selecting a file adds it to the local reference list, where you can review its name or remove it. Keep the tab open while organizing your scene because refreshing clears those selections. The Clear button resets the prompt, settings, and references so you can start another idea.' },
-      { question: 'Can I assume every output is watermark-free?', answer: 'Do not assume a universal watermark policy from a model name. The linked H3 creation reference does not provide a blanket watermark guarantee for every delivery service. Before publishing a finished video, check the actual output and the terms of the service that produced it, including any account or plan conditions.', source: homeSources.api },
+      { question: 'How can I check the watermark policy for an output?', answer: 'Read the delivery terms for the provider and configuration you intend to use. Watermark conditions can depend on the account, plan, and export route. Inspect the delivered file before adding it to an edit, and keep those conditions with the shot’s production notes so collaborators use the same delivery settings.', source: homeSources.api },
       { question: 'How can I make my first video prompt easier to evaluate?', answer: 'Start with one subject, one visible action, and one camera movement. Describe the opening composition and the moment the shot ends. Keep the intended frame shape and audience in mind, then write a second version that changes only one decision. Comparing those two prompts helps you identify whether framing, timing, or sound needs more direction.' },
     ],
   },
@@ -231,5 +222,4 @@ export const homeContent = {
     returnLink: 'MiniMax H3.1 video generator',
     returnTail: 'and turn it into a focused brief.',
   },
-  lastUpdatedLabel: 'Last updated:',
 } as const;
