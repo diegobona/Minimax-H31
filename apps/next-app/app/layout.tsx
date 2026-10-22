@@ -2,8 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import localFont from 'next/font/local';
-import { ArrowUpRight } from 'lucide-react';
-import { DEFAULT_OG_IMAGE, homeContent, homeSources } from '@/content/home';
+import { DEFAULT_OG_IMAGE, homeContent } from '@/content/home';
 import './globals.css';
 
 const sans = localFont({
@@ -50,15 +49,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
                   <Link key={entry.href} href={entry.href}>{entry.label}</Link>
                 ))}
               </nav>
-              <a className="minimax-docs-link" href={homeSources.api} target="_blank" rel="noreferrer">
-                {site.documentation}<ArrowUpRight size={14} aria-hidden="true" />
-              </a>
             </div>
           </header>
           <main id="main-content">{children}</main>
           <footer className="minimax-footer">
             <div className="minimax-container minimax-footer-inner">
-              <div><Link className="minimax-footer-brand" href="/">{site.name}.com</Link><p>{site.footerNote}</p></div>
               <p className="minimax-disclaimer">{site.disclaimer}</p>
             </div>
           </footer>
