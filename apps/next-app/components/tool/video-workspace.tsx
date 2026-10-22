@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, type DragEvent, type FormEvent } from 'react';
+import { useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 import { ArrowRight, AudioLines, Check, Film, LoaderCircle, Plus, Upload, X } from 'lucide-react';
 import { Button } from '@libs/react-shared/ui/button';
@@ -11,7 +12,6 @@ import type { homeContent } from '@/content/home';
 
 type Copy = typeof homeContent.tool;
 type Reference = { id: string; file: File; kind: 'image' | 'video' | 'audio'; url: string; duration: number };
-type Example = { prompt: string; duration: number; ratio: string };
 type MediaInfo = { width: number; height: number; duration: number };
 
 function inspectMedia(file: File, url: string, kind: Reference['kind']): Promise<MediaInfo> {
@@ -51,9 +51,11 @@ function referenceError(references: Reference[], copy: Copy): string | null {
   return null;
 }
 
-export function VideoWorkspace({ copy, initialExample }: { copy: Copy; initialExample?: Example }) {
+export function VideoWorkspace({ copy }: { copy: Copy }) {
+  const searchParams = useSearchParams();
+  const initialExample = copy.examples.find((example) => example.id === searchParams.get('example'));
   const [prompt, setPrompt] = useState(initialExample?.prompt ?? '');
-  const [ratio, setRatio] = useState(initialExample?.ratio ?? '16:9');
+  const [ratio, setRatio] = useState<string>(initialExample?.ratio ?? '16:9');
   const [duration, setDuration] = useState(String(initialExample?.duration ?? 6));
   const [resolution, setResolution] = useState('768P');
   const [references, setReferences] = useState<Reference[]>([]);

@@ -1,0 +1,19 @@
+{
+  "name": "minimax-h31",
+  "account_id": "c686d583b6d595875de1b8b73462fe42",
+  "compatibility_date": "2026-10-22",
+  "workers_dev": true,
+  "routes": [
+    { "pattern": "minimax-h31.com", "custom_domain": true },
+    { "pattern": "www.minimax-h31.com", "custom_domain": true }
+  ],
+  "assets": {
+    "directory": "../../../.tmp/cloudflare-site/out",
+    "html_handling": "drop-trailing-slash",
+    "not_found_handling": "404-page"
+  },
+  "observability": {
+    "enabled": true,
+    "traces": { "enabled": true }
+  }
+}
