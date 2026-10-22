@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowDown, ArrowRight, ArrowUpRight, Check, ChevronDown, Info } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, Check, ChevronDown, Info } from 'lucide-react';
 import { VideoWorkspace } from '@/components/tool/video-workspace';
 import { HOME_UPDATED, OFFICIAL_UNKNOWN, homeContent as c, homeSources } from '@/content/home';
 
@@ -52,20 +52,15 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
           <div className="minimax-workspace">
             <VideoWorkspace copy={c.tool} initialExample={selectedExample} />
             <section className="minimax-examples" aria-label={c.tool.previewHeading}>
-              <div className="minimax-examples-heading"><p>{c.tool.previewHeading}</p><span>{c.hero.connection}</span></div>
+              <div className="minimax-examples-heading"><p>{c.tool.previewHeading}</p></div>
               <div className="minimax-example-grid">{c.tool.examples.map((example) => <div className="minimax-example-card" key={example.id}>
                 <div className="minimax-example-art"><Image src={example.image} alt={example.alt} width={640} height={760} priority /><span>{example.category}</span><span className="minimax-example-time">{example.duration}s</span></div>
                 <div className="minimax-example-caption"><span className="minimax-eyebrow">{c.tool.previewLabel}</span><h3>{example.title}</h3><Link href={`/?example=${example.id}#generator`} scroll={false}>{c.tool.usePrompt}<ArrowUpRight size={14} aria-hidden="true" /></Link></div>
               </div>)}</div>
               <p className="minimax-example-disclosure">{c.tool.previewDisclosure}</p>
-              <div className="minimax-empty-result"><span aria-hidden="true">↗</span><p>{c.tool.previewEmpty}</p></div>
             </section>
           </div>
           <p className="minimax-model-explanation"><Info size={16} aria-hidden="true" /><span>{c.hero.explanation}</span></p>
-        </div>
-        <div className="minimax-status-strip">
-          <p><span>{c.hero.availability}</span> {OFFICIAL_UNKNOWN} <UpdatedTime /></p>
-          <a href="#what-this-tool-does">{c.site.readGuide}<ArrowDown size={13} aria-hidden="true" /></a>
         </div>
       </div>
 
