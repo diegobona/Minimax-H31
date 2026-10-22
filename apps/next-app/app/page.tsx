@@ -51,8 +51,8 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
         <div id="generator" className="minimax-generator-anchor">
           <div className="minimax-workspace">
             <VideoWorkspace copy={c.tool} initialExample={selectedExample} />
-            <section className="minimax-examples" aria-label={c.tool.previewHeading}>
-              <div className="minimax-examples-heading"><p>{c.tool.previewHeading}</p></div>
+            <section className="minimax-examples" aria-labelledby="example-prompts">
+              <div className="minimax-examples-heading"><h2 id="example-prompts" className="text-lg font-semibold max-sm:text-base">{c.tool.previewHeading}</h2></div>
               <div className="minimax-example-grid">{c.tool.examples.map((example) => <div className="minimax-example-card" key={example.id}>
                 <div className="minimax-example-art"><Image src={example.image} alt={example.alt} width={640} height={760} priority /><span>{example.category}</span><span className="minimax-example-time">{example.duration}s</span></div>
                 <div className="minimax-example-caption"><span className="minimax-eyebrow">{c.tool.previewLabel}</span><h3>{example.title}</h3><Link href={`/?example=${example.id}#generator`} scroll={false}>{c.tool.usePrompt}<ArrowUpRight size={14} aria-hidden="true" /></Link></div>

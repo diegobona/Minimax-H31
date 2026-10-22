@@ -88,7 +88,7 @@ export const homeContent = {
     dimensionsError: 'Image and video dimensions must be 256–5760 pixels, with a width-to-height ratio between 0.4 and 2.5.',
     durationError: 'Each video or audio clip must be 2–15 seconds; video and audio each have a 15-second combined limit.',
     metadataError: 'This browser could not read the file. Convert it to a supported format and try again.',
-    previewHeading: 'A little inspiration',
+    previewHeading: 'Example prompts',
     previewLabel: 'EXAMPLE PROMPT',
     previewDisclosure: 'Illustrated storyboards · not generated results',
     usePrompt: 'Use this prompt',
