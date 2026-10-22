@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowDown, ArrowUpRight, ChevronDown } from 'lucide-react';
-import { MAX_UPDATED, maxContent as c, maxSources as sources } from '@/content/max';
-import { DEFAULT_OG_IMAGE, OFFICIAL_UNKNOWN } from '@/content/home';
+import { maxContent as c, maxSources as sources } from '@/content/max';
+import { DEFAULT_OG_IMAGE } from '@/content/home';
 
 export const metadata: Metadata = {
   title: { absolute: c.metadata.title },
@@ -11,14 +11,8 @@ export const metadata: Metadata = {
   openGraph: { title: c.metadata.title, description: c.metadata.description, url: '/minimax-h3.1-max', type: 'article', images: [DEFAULT_OG_IMAGE] },
 };
 
-function UpdatedTime() {
-  return <time className="minimax-inline-time" dateTime={MAX_UPDATED}>{MAX_UPDATED}</time>;
-}
-
 function RecordedText({ text }: { text: string }) {
-  if (!text.includes(OFFICIAL_UNKNOWN)) return <>{text}</>;
-  const [before, after] = text.split(OFFICIAL_UNKNOWN);
-  return <>{before}{OFFICIAL_UNKNOWN} <UpdatedTime />{after}</>;
+  return <>{text}</>;
 }
 
 function Source({ href, children = c.closing.source }: { href: string; children?: React.ReactNode }) {
@@ -33,7 +27,7 @@ export default function MaxPage() {
   const faqLd = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: c.faq.items.map(({ question, answer }) => ({ '@type': 'Question', name: question, acceptedAnswer: { '@type': 'Answer', text: answer.replace(OFFICIAL_UNKNOWN, `${OFFICIAL_UNKNOWN} ${MAX_UPDATED}`) } })),
+    mainEntity: c.faq.items.map(({ question, answer }) => ({ '@type': 'Question', name: question, acceptedAnswer: { '@type': 'Answer', text: answer } })),
   };
 
   return (
@@ -44,7 +38,6 @@ export default function MaxPage() {
         <p className="minimax-guide-lead">{c.hero.introduction}</p>
         <p className="minimax-guide-tool-link">{c.hero.linkLead} <Link href="/#generator">{c.hero.link}</Link> {c.hero.linkTail}</p>
         <div className="minimax-guide-actions"><a href="#comparison" className="minimax-guide-primary">{c.hero.compare}<ArrowDown size={15} aria-hidden="true" /></a><span className="minimax-max-status">{c.hero.status}</span></div>
-        <p className="minimax-max-reviewed">{c.hero.checked} <UpdatedTime /></p>
       </div>
 
       <div className="minimax-container minimax-editorial">
@@ -52,7 +45,6 @@ export default function MaxPage() {
           <h2>{c.meaning.heading}</h2>
           {c.meaning.paragraphs.map((text) => <p className="minimax-section-intro" key={text}>{text}</p>)}
           <div className="minimax-max-sources"><Source href={sources.falLaunch}>{c.meaning.sourceLabel}</Source><Source href={sources.minimax} /></div>
-          <p className="minimax-guide-note"><strong>{c.meaning.pendingLead}</strong> <RecordedText text={c.meaning.pending} /></p>
         </section>
 
         <section className="minimax-section" id="comparison">
@@ -68,7 +60,6 @@ export default function MaxPage() {
 
         <section className="minimax-section" id="h31-max-status">
           <h2>{c.availability.heading}</h2>
-          <p className="minimax-guide-availability"><RecordedText text={c.availability.status} /></p>
           <p className="minimax-section-intro">{c.availability.text}</p>
           <Source href={sources.updates}>{c.availability.sourceLabel}</Source>
         </section>
@@ -102,7 +93,6 @@ export default function MaxPage() {
           <div className="minimax-faq-list">{c.faq.items.map((faq, index) => <details className="minimax-faq" key={faq.question} open={index === 0}><summary><h3>{faq.question}</h3><ChevronDown size={17} aria-hidden="true" /></summary><div><p><RecordedText text={faq.answer} /></p></div></details>)}</div>
         </section>
         <p className="minimax-return-link">{c.closing.lead} <Link href="/#generator">{c.closing.link}</Link> {c.closing.tail}</p>
-        <p className="minimax-last-updated">{c.closing.updated} <UpdatedTime /></p>
       </div>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
     </article>
