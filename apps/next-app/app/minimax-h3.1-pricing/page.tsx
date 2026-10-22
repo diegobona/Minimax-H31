@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowDown, ArrowUpRight, ChevronDown } from 'lucide-react';
 import { Button } from '@libs/react-shared/ui/button';
-import { PRICING_UPDATED, pricingContent as c } from '@/content/pricing';
-import { DEFAULT_OG_IMAGE, OFFICIAL_UNKNOWN } from '@/content/home';
+import { pricingContent as c } from '@/content/pricing';
+import { DEFAULT_OG_IMAGE } from '@/content/home';
 
 export const metadata: Metadata = {
   title: { absolute: c.metadata.title },
@@ -12,21 +12,15 @@ export const metadata: Metadata = {
   openGraph: { title: c.metadata.title, description: c.metadata.description, url: '/minimax-h3.1-pricing', type: 'website', images: [DEFAULT_OG_IMAGE] },
 };
 
-function UpdatedTime() {
-  return <time className="minimax-inline-time" dateTime={PRICING_UPDATED}>{PRICING_UPDATED}</time>;
-}
-
 function RecordedText({ text }: { text: string }) {
-  if (!text.includes(OFFICIAL_UNKNOWN)) return <>{text}</>;
-  const [before, after] = text.split(OFFICIAL_UNKNOWN);
-  return <>{before}{OFFICIAL_UNKNOWN} <UpdatedTime />{after}</>;
+  return <>{text}</>;
 }
 
 export default function PricingPage() {
   const faqLd = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: c.faq.items.map(({ question, answer }) => ({ '@type': 'Question', name: question, acceptedAnswer: { '@type': 'Answer', text: answer.replace(OFFICIAL_UNKNOWN, `${OFFICIAL_UNKNOWN} ${PRICING_UPDATED}`) } })),
+    mainEntity: c.faq.items.map(({ question, answer }) => ({ '@type': 'Question', name: question, acceptedAnswer: { '@type': 'Answer', text: answer } })),
   };
 
   return (
@@ -37,7 +31,6 @@ export default function PricingPage() {
         <p className="minimax-guide-lead">{c.hero.introduction}</p>
         <p className="minimax-guide-tool-link">{c.hero.linkLead} <Link href="/#generator">{c.hero.link}</Link> {c.hero.linkTail}</p>
         <div className="minimax-guide-actions"><a href="#credit-packs" className="minimax-guide-primary">{c.hero.compare}<ArrowDown size={15} aria-hidden="true" /></a><span className="minimax-pricing-status">{c.hero.status}</span></div>
-        <p className="minimax-guide-note"><strong>{c.hero.availabilityLabel}</strong> <RecordedText text={c.hero.availability} /></p>
       </div>
 
       <div className="minimax-container minimax-editorial">
@@ -98,7 +91,6 @@ export default function PricingPage() {
           <div className="minimax-faq-list">{c.faq.items.map((faq, index) => <details className="minimax-faq" key={faq.question} open={index === 0}><summary><h3>{faq.question}</h3><ChevronDown size={17} aria-hidden="true" /></summary><div><p><RecordedText text={faq.answer} /></p></div></details>)}</div>
         </section>
         <p className="minimax-return-link">{c.closing.lead} <Link href="/#generator">{c.closing.link}</Link> {c.closing.tail}</p>
-        <p className="minimax-last-updated">{c.closing.updated} <UpdatedTime /></p>
       </div>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
     </article>
