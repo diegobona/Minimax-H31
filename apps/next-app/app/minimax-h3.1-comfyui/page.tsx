@@ -3,13 +3,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowDownToLine, ArrowUpRight, ChevronDown, Info } from 'lucide-react';
 import { COMFYUI_UPDATED, comfyuiContent as c, comfyuiSources as sources } from '@/content/comfyui';
-import { OFFICIAL_UNKNOWN } from '@/content/home';
+import { DEFAULT_OG_IMAGE, OFFICIAL_UNKNOWN } from '@/content/home';
 
 export const metadata: Metadata = {
   title: { absolute: c.metadata.title },
   description: c.metadata.description,
   alternates: { canonical: '/minimax-h3.1-comfyui' },
-  openGraph: { title: c.metadata.title, description: c.metadata.description, url: '/minimax-h3.1-comfyui', type: 'article' },
+  openGraph: { title: c.metadata.title, description: c.metadata.description, url: '/minimax-h3.1-comfyui', type: 'article', images: [DEFAULT_OG_IMAGE] },
 };
 
 function UpdatedTime() {

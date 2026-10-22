@@ -3,13 +3,13 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, ArrowUpRight, Check, ChevronDown, Info } from 'lucide-react';
 import { VideoWorkspace } from '@/components/tool/video-workspace';
-import { HOME_UPDATED, OFFICIAL_UNKNOWN, homeContent as c, homeSources } from '@/content/home';
+import { DEFAULT_OG_IMAGE, HOME_UPDATED, OFFICIAL_UNKNOWN, homeContent as c, homeSources } from '@/content/home';
 
 export const metadata: Metadata = {
   title: { absolute: c.metadata.title },
   description: c.metadata.description,
   alternates: { canonical: '/' },
-  openGraph: { title: c.metadata.title, description: c.metadata.description, url: '/', type: 'website' },
+  openGraph: { title: c.metadata.title, description: c.metadata.description, url: '/', type: 'website', images: [DEFAULT_OG_IMAGE] },
 };
 
 function UpdatedTime() {

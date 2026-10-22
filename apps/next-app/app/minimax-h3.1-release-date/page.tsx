@@ -2,13 +2,13 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowDown, ArrowUpRight, ChevronDown } from 'lucide-react';
 import { RELEASE_UPDATED, releaseContent as c } from '@/content/release-date';
-import { OFFICIAL_UNKNOWN } from '@/content/home';
+import { DEFAULT_OG_IMAGE, OFFICIAL_UNKNOWN } from '@/content/home';
 
 export const metadata: Metadata = {
   title: { absolute: c.metadata.title },
   description: c.metadata.description,
   alternates: { canonical: '/minimax-h3.1-release-date' },
-  openGraph: { title: c.metadata.title, description: c.metadata.description, url: '/minimax-h3.1-release-date', type: 'article' },
+  openGraph: { title: c.metadata.title, description: c.metadata.description, url: '/minimax-h3.1-release-date', type: 'article', images: [DEFAULT_OG_IMAGE] },
 };
 
 type Reference = { label: string; href: string };

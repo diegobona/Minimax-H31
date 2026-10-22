@@ -3,13 +3,13 @@ import Link from 'next/link';
 import { ArrowDown, ArrowUpRight, ChevronDown } from 'lucide-react';
 import { Button } from '@libs/react-shared/ui/button';
 import { PRICING_UPDATED, pricingContent as c } from '@/content/pricing';
-import { OFFICIAL_UNKNOWN } from '@/content/home';
+import { DEFAULT_OG_IMAGE, OFFICIAL_UNKNOWN } from '@/content/home';
 
 export const metadata: Metadata = {
   title: { absolute: c.metadata.title },
   description: c.metadata.description,
   alternates: { canonical: '/minimax-h3.1-pricing' },
-  openGraph: { title: c.metadata.title, description: c.metadata.description, url: '/minimax-h3.1-pricing', type: 'website' },
+  openGraph: { title: c.metadata.title, description: c.metadata.description, url: '/minimax-h3.1-pricing', type: 'website', images: [DEFAULT_OG_IMAGE] },
 };
 
 function UpdatedTime() {

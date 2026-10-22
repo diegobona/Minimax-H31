@@ -1,5 +1,12 @@
 export const HOME_UPDATED = '2026-10-21';
 export const OFFICIAL_UNKNOWN = 'Official details not yet announced.';
+export const DEFAULT_OG_IMAGE = {
+  url: '/og/default.png',
+  width: 1200,
+  height: 630,
+  type: 'image/png',
+  alt: 'MiniMax H3.1 Video Generator · Current model: MiniMax H3',
+};
 
 export const homeSources = {
   api: 'https://platform.minimax.io/docs/api-reference/video-generation-v2-create',

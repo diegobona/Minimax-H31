@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import localFont from 'next/font/local';
 import { ArrowUpRight } from 'lucide-react';
-import { homeContent, homeSources } from '@/content/home';
+import { DEFAULT_OG_IMAGE, homeContent, homeSources } from '@/content/home';
 import './globals.css';
 
 const sans = localFont({
@@ -21,6 +21,7 @@ const mono = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://minimax-h31.com'),
+  openGraph: { images: [DEFAULT_OG_IMAGE] },
   icons: {
     icon: [
       { url: '/brand/favicon.svg?v=3ebd36e3', type: 'image/svg+xml', sizes: 'any' },
