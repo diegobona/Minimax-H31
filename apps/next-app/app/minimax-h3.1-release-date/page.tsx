@@ -2,29 +2,31 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowDown, ArrowUpRight, ChevronDown } from 'lucide-react';
 import { RELEASE_UPDATED, releaseContent as c } from '@/content/release-date';
-import { DEFAULT_OG_IMAGE, OFFICIAL_UNKNOWN } from '@/content/home';
+import { DEFAULT_OG_IMAGE } from '@/content/home';
 
 export const metadata: Metadata = {
   title: { absolute: c.metadata.title },
   description: c.metadata.description,
   alternates: { canonical: '/minimax-h3.1-release-date' },
-  openGraph: { title: c.metadata.title, description: c.metadata.description, url: '/minimax-h3.1-release-date', type: 'article', images: [DEFAULT_OG_IMAGE] },
+  openGraph: { title: c.metadata.title, description: c.metadata.description, url: '/minimax-h3.1-release-date', type: 'article', publishedTime: '2026-10-22', modifiedTime: RELEASE_UPDATED, images: [DEFAULT_OG_IMAGE] },
 };
 
-type Reference = { label: string; href: string };
+type Reference = { label: string; href: string; unavailable?: boolean };
+
+function sourceCheckLabel(references: readonly Reference[]) {
+  return references.some((reference) => reference.unavailable) ? c.evidence.partial : c.evidence.checked;
+}
 
 function UpdatedTime() {
   return <time className="minimax-inline-time" dateTime={RELEASE_UPDATED}>{RELEASE_UPDATED}</time>;
 }
 
 function RecordedText({ text }: { text: string }) {
-  if (!text.includes(OFFICIAL_UNKNOWN)) return <>{text}</>;
-  const [before, after] = text.split(OFFICIAL_UNKNOWN);
-  return <>{before}{OFFICIAL_UNKNOWN} <UpdatedTime />{after}</>;
+  return <>{text}</>;
 }
 
 function Evidence({ references }: { references: readonly Reference[] }) {
-  return <div className="minimax-release-evidence">{references.map((reference) => reference.href.startsWith('https:') ? <a className="minimax-guide-source" key={reference.href} href={reference.href} target="_blank" rel="noreferrer">{reference.label}<ArrowUpRight size={12} aria-hidden="true" /></a> : <Link className="minimax-guide-source" key={reference.href} href={reference.href}>{reference.label}</Link>)}<span>{c.evidence.checked} <UpdatedTime /></span></div>;
+  return <div className="minimax-release-evidence">{references.map((reference) => reference.href.startsWith('https:') ? <a className="minimax-guide-source" key={reference.href} href={reference.href} target="_blank" rel="noreferrer">{reference.label}{reference.unavailable && <> · {c.evidence.unavailable}</>}<ArrowUpRight size={12} aria-hidden="true" /></a> : <Link className="minimax-guide-source" key={reference.href} href={reference.href}>{reference.label}</Link>)}<span>{sourceCheckLabel(references)} <UpdatedTime /></span></div>;
 }
 
 export default function ReleaseDatePage() {
@@ -33,7 +35,7 @@ export default function ReleaseDatePage() {
     '@type': 'FAQPage',
     mainEntity: c.faq.items.map(({ question, answer, references }) => ({
       '@type': 'Question', name: question,
-      acceptedAnswer: { '@type': 'Answer', text: `${answer.replace(OFFICIAL_UNKNOWN, `${OFFICIAL_UNKNOWN} ${RELEASE_UPDATED}`)} ${c.evidence.checked}: ${RELEASE_UPDATED}. ${c.evidence.source}: ${references.map((reference) => reference.href.startsWith('https:') ? reference.href : `https://minimax-h31.com${reference.href.startsWith('#') ? '/minimax-h3.1-release-date' : ''}${reference.href}`).join(', ')}` },
+      acceptedAnswer: { '@type': 'Answer', text: `${answer} ${sourceCheckLabel(references)}: ${RELEASE_UPDATED}. ${c.evidence.source}: ${references.map((reference: Reference) => `${reference.href.startsWith('https:') ? reference.href : `https://minimax-h31.com${reference.href.startsWith('#') ? '/minimax-h3.1-release-date' : ''}${reference.href}`}${reference.unavailable ? ` (${c.evidence.unavailable})` : ''}`).join(', ')}` },
     })),
   };
 
@@ -56,7 +58,7 @@ export default function ReleaseDatePage() {
           <Evidence references={c.history.references} />
           <div className="minimax-table-scroll"><table className="minimax-table minimax-release-history">
             <thead><tr>{c.history.columns.map((column) => <th scope="col" key={column}>{column}</th>)}</tr></thead>
-            <tbody>{c.history.rows.map((row) => <tr key={row.model}><th scope="row">{row.model}</th><td>{row.date === OFFICIAL_UNKNOWN ? <RecordedText text={row.date} /> : <time dateTime={row.date}>{row.date}</time>}</td><td>{row.line}</td><td><Evidence references={[row.reference]} /></td></tr>)}</tbody>
+            <tbody>{c.history.rows.map((row) => <tr key={row.model}><th scope="row">{row.model}</th><td><time dateTime={row.date}>{row.date}</time></td><td>{row.line}</td><td><Evidence references={[row.reference]} /></td></tr>)}</tbody>
           </table></div>
         </section>
 
@@ -74,23 +76,10 @@ export default function ReleaseDatePage() {
           <div className="minimax-release-channels">{c.channels.items.map((channel) => <div className="minimax-release-channel" key={channel.title}><h3>{channel.title}</h3><p>{channel.text}</p><Evidence references={[channel.reference]} /></div>)}</div>
         </section>
 
-        <section className="minimax-section" id="verify-yourself">
-          <h2>{c.verify.heading}</h2>
-          <p className="minimax-section-intro">{c.verify.introduction}</p>
-          <Evidence references={c.verify.references} />
-          <ol className="minimax-guide-steps">{c.verify.steps.map((step) => <li key={step.title}><h3>{step.title}</h3><p>{step.text}</p><Evidence references={step.references} /></li>)}</ol>
-        </section>
-
         <section className="minimax-section" id="site-updates">
           <h2>{c.changes.heading}</h2>
-          <p className="minimax-section-intro">{c.changes.introduction}</p>
-          <Evidence references={c.changes.references} />
-          <div className="minimax-table-scroll"><table className="minimax-table minimax-release-changes">
-            <thead><tr>{c.changes.columns.map((column) => <th scope="col" key={column}>{column}</th>)}</tr></thead>
-            <tbody>{c.changes.rows.map((row) => <tr key={row.item}><th scope="row">{row.item}</th><td>{row.action}</td><td><Evidence references={[row.reference]} /></td></tr>)}</tbody>
-          </table></div>
-          <p className="minimax-guide-note">{c.changes.note}</p>
-          <Evidence references={c.changes.noteReferences} />
+          {c.changes.paragraphs.map((paragraph) => <p className="minimax-section-intro" key={paragraph}>{paragraph}</p>)}
+          <p className="minimax-guide-note">{c.changes.target}</p>
         </section>
 
         <section className="minimax-section minimax-faq-section" id="faq">
