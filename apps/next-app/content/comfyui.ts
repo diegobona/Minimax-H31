@@ -1,5 +1,3 @@
-export const COMFYUI_UPDATED = '2026-10-21';
-
 export const comfyuiSources = {
   overview: 'https://docs.comfy.org/tutorials/video/minimax/minimax-h3',
   native: 'https://docs.comfy.org/tutorials/video/minimax/minimax-h3-native',
@@ -36,12 +34,11 @@ export const comfyuiContent = {
     linkTail: 'and work out your prompt before opening ComfyUI.',
     download: 'Get the official workflow JSON',
     hosted: 'Open template on Comfy Cloud',
-    checked: 'Sources checked',
     model: 'Available workflow: MiniMax H3',
-    scope: 'A practical guide with official download links. Models run in your own ComfyUI installation; this website does not host weights or execute the workflow.',
+    scope: 'Models run in your own ComfyUI installation.',
     previewLabel: 'OFFICIAL COMFYUI EXAMPLE',
     previewAlt: 'Official MiniMax H3 text-to-video workflow preview showing a cinematic rooftop action scene at dusk.',
-    previewCaption: 'Official ComfyUI H3 T2V example preview. This is an upstream example, not a render tested on this website or a screenshot of your local graph.',
+    previewCaption: 'Official ComfyUI H3 T2V example preview.',
     previewSource: 'View the source workflow',
   },
   requirements: {
@@ -51,9 +48,8 @@ export const comfyuiContent = {
     rows: [
       { item: 'ComfyUI version', value: 'Update to the current release. Basic H3 workflows started at 0.30.0; current template metadata names 0.33.0, and INT8 video-VAE performance support requires 0.36.0 or later.', source: comfyuiSources.overview },
       // TODO: Add measured VRAM/RAM results only after testing this exact five-file pack, GPU, resolution, duration, and offload configuration.
-      { item: 'VRAM and system memory', value: 'Official details not yet announced. There is no single published minimum for this exact native template. Capacity depends on precision, offloading, output size, and duration; do not treat a community GPU example as a guaranteed minimum.', source: comfyuiSources.modelCard },
       { item: 'Operating system', value: 'This INT8 walkthrough targets Windows or Linux with a compatible NVIDIA setup. General ComfyUI platform support does not guarantee that every H3 quantization backend works on every device.', source: comfyuiSources.installation },
-      { item: 'Dependencies', value: 'Use the matching ComfyUI distribution. The model card recommends PyTorch cu130 for INT8 convrot. Core requirements include torch, transformers, safetensors, av, and comfy-kitchen; avoid independently mixing package versions.', source: comfyuiSources.dependencies },
+      { item: 'Dependencies', value: 'Use the matching ComfyUI distribution. The model card recommends PyTorch cu130 for INT8 convrot. Core requirements include torch, transformers, safetensors, av, and comfy-kitchen; keep package versions aligned with that distribution.', source: comfyuiSources.dependencies },
       { item: 'Model-file size', value: 'The five selected files total 42,030,035,159 bytes: approximately 42.03 GB, or 39.14 GiB. This is disk storage for your local installation, not a VRAM requirement. Leave additional room for ComfyUI, temporary downloads, and outputs.', source: comfyuiSources.huggingFace },
     ],
     note: 'Start with the template’s small draft resolution and a short clip. A successful small render is a useful compatibility check, but it does not establish that a longer or larger job will fit the same hardware.',
@@ -75,7 +71,7 @@ export const comfyuiContent = {
     ],
     downloadLabel: 'Download file',
     infoLabel: 'File details',
-    note: 'The LoRA is included in the template’s model scan even when turbo mode is disabled. Optional style embeddings are not required for the first run. Sizes above use decimal units from the Hugging Face file metadata; we have not independently established byte-for-byte identity of every ModelScope mirror file.',
+    note: 'The LoRA is included in the template’s model scan even when turbo mode is disabled. Optional style embeddings are not required for the first run. Sizes above use decimal units from the Hugging Face file metadata. Compare a ModelScope download with the file records provided by that repository.',
   },
   nodes: {
     heading: 'Install nodes',
@@ -102,7 +98,7 @@ export const comfyuiContent = {
   },
   parameters: {
     heading: 'Key parameters',
-    introduction: 'These are starting settings for the available H3 native graph. They are not H3.1 specifications or measurements from this website. Change one setting at a time so you can associate a failure or quality change with a specific choice.',
+    introduction: 'Use these starting settings for the H3 native graph. Change one setting at a time so you can associate a failure or quality change with a specific choice.',
     columns: ['Parameter', 'Suggested starting point or range', 'Effect and boundary'],
     rows: [
       { item: 'Steps', value: '20 for the base workflow; try 20–25. Use 8 only with the matching turbo LoRA and turbo mode.', effect: 'More sampling work costs time. Switching to a turbo step count without its matched configuration does not reproduce the turbo workflow.' },
@@ -131,7 +127,6 @@ export const comfyuiContent = {
   },
   availability: {
     heading: 'H3.1 in ComfyUI',
-    status: 'Official details not yet announced.',
     text: 'After an official H3.1 release, this section will be updated with verified weight links, node compatibility, and a corresponding workflow. Until then, the working instructions above remain explicitly about H3.',
     sourceLabel: 'MiniMax official announcements',
     // TODO: Replace only after an official H3.1 announcement and a verified ComfyUI workflow exist.
@@ -142,7 +137,7 @@ export const comfyuiContent = {
       { question: 'Can I use this MiniMax H3.1 ComfyUI guide today?', answer: 'Yes, the practical setup sections use the available H3 weights and the official ComfyUI text-to-video template. The H3.1 name is the subject of the availability section, not a downloadable checkpoint. Follow the linked files and graph together, and begin with a small local compatibility check before planning larger renders.' },
       { question: 'Do I need to install a separate MiniMax H3 custom node?', answer: 'The native template uses ComfyUI core nodes, including MiniMaxH3ImageToVideo. Start by updating the installation you actually launch. Manager is useful for diagnosing additional packages, but an unrelated extension does not replace a missing core implementation. A modified community workflow may have different requirements, so inspect its own node list separately.' },
       { question: 'Can I download the weights from ModelScope instead of Hugging Face?', answer: 'Yes. The Comfy-Org MiniMax-H3 repository is available on both services. On ModelScope, browse the same directories and filenames listed in this guide. Do not substitute the original MiniMax repository layout for the repackaged loader files. Check completed downloads against their own file listings before selecting them in your local workflow.' },
-      { question: 'Does this website download or run the model for me?', answer: 'No. This page provides instructions and official external links. The model files belong in your own ComfyUI installation, and local rendering uses your own hardware and storage. Visiting the tutorial does not download the weight pack or start a generation job. The homepage separately provides a browser-based brief preparation interface.' },
+      { question: 'Where does the model run?', answer: 'Run the model in your local ComfyUI installation using your own hardware and storage. Download the matching weights through the official release channels linked in the guide, place each file in its specified model directory, and select those files in the imported workflow before starting a local render.' },
       { question: 'Is 42 GB the amount of GPU memory I need?', answer: 'No. That figure describes the combined disk size of the selected model files in decimal units. Runtime GPU and system memory depend on loading, offloading, quantization, resolution, and clip length. We have not published a measured hardware matrix for this exact setup, so the file total should not be treated as a VRAM recommendation.' },
       { question: 'What CFG value should I use for the official H3 workflow?', answer: 'The linked native graph uses BasicGuider and does not expose a CFG control. Leave that arrangement intact for the baseline run. A generic CFG range from another video model is not an instruction for this template. If you deliberately build a different guidance graph, document and test that configuration separately.' },
       { question: 'Why does a five-second request produce more than 120 frames?', answer: 'The workflow converts seconds into a frame count aligned to H3’s seventeen-frame block grid with a five-frame offset. A five-second request therefore becomes 124 frames rather than 120. Keep that calculation connected to the model length and preserve the matching playback rate instead of manually trimming intermediate latents.' },
@@ -153,7 +148,6 @@ export const comfyuiContent = {
     lead: 'Before refining a local workflow, prepare a clear subject, action, camera move, and sound direction in the',
     link: 'MiniMax H3.1 video generator',
     tail: 'and bring that brief back to your own ComfyUI canvas.',
-    updated: 'Last updated:',
     source: 'Official source',
   },
 } as const;
